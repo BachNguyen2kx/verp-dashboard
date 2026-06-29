@@ -1,0 +1,91 @@
+item_id,parent_id,name,level,highlight,is_parent
+tai_san,,TÀI SẢN,0,True,True
+tai_san_ngan_han,tai_san,TÀI SẢN NGẮN HẠN,1,True,True
+tien_va_tuong_duong,tai_san_ngan_han,Tiền và các khoản tương đương tiền,2,True,True
+tien,tien_va_tuong_duong,Tiền,3,False,False
+tuong_duong_tien,tien_va_tuong_duong,Các khoản tương đương tiền,3,False,False
+dau_tu_tc_ngan_han,tai_san_ngan_han,Các khoản đầu tư tài chính ngắn hạn,2,True,True
+ck_kinh_doanh,dau_tu_tc_ngan_han,Chứng khoán kinh doanh,3,False,False
+dp_giam_gia_ck,dau_tu_tc_ngan_han,Dự phòng giảm giá chứng khoán kinh doanh,3,False,False
+dt_dao_han,dau_tu_tc_ngan_han,Đầu tư nắm giữ đến ngày đáo hạn,3,False,False
+dp_dt_dao_han,dau_tu_tc_ngan_han,Dự phòng đầu tư nắm giữ đến ngày đáo hạn ngắn hạn,3,False,False
+dt_ngan_han_khac,dau_tu_tc_ngan_han,Đầu tư ngắn hạn khác,3,False,False
+dp_ton_that_dt,dau_tu_tc_ngan_han,Dự phòng tổn thất các khoản đầu tư ngắn hạn khác,3,False,False
+phai_thu_ngan_han,tai_san_ngan_han,Các khoản phải thu ngắn hạn,2,True,True
+phai_thu_kh,phai_thu_ngan_han,Phải thu ngắn hạn của khách hàng,3,False,False
+tra_truoc_nb,phai_thu_ngan_han,Trả trước cho người bán ngắn hạn,3,False,False
+phai_thu_noi_bo,phai_thu_ngan_han,Phải thu nội bộ ngắn hạn,3,False,False
+phai_thu_tien_do,phai_thu_ngan_han,Phải thu theo tiến độ kế hoạch hợp đồng xây dựng,3,False,False
+phai_thu_ngan_han_khac,phai_thu_ngan_han,Phải thu ngắn hạn khác,3,False,False
+dp_phai_thu_kho_doi,phai_thu_ngan_han,Dự phòng phải thu ngắn hạn khó đòi,3,False,False
+ts_thieu_cho_xl,phai_thu_ngan_han,Tài sản thiếu chờ xử lý,3,False,False
+hang_ton_kho_group,tai_san_ngan_han,Hàng tồn kho,2,True,True
+hang_ton_kho,hang_ton_kho_group,Hàng tồn kho,3,False,False
+dp_giam_gia_htk,hang_ton_kho_group,Dự phòng giảm giá hàng tồn kho,3,False,False
+ts_sinh_hoc_nh,tai_san_ngan_han,Tài sản sinh học ngắn hạn,2,True,True
+vat_nuoi_lay_sp,ts_sinh_hoc_nh,Sức vật nuôi lấy sản phẩm một lần ngắn hạn,3,False,False
+cay_trong_lay_sp,ts_sinh_hoc_nh,Cây trồng theo mùa vụ hoặc lấy sản phẩm một lần...,3,False,False
+dp_ts_sinh_hoc,ts_sinh_hoc_nh,Dự phòng tổn thất tài sản sinh học ngắn hạn,3,False,False
+ts_ngan_han_khac,tai_san_ngan_han,Tài sản ngắn hạn khác,2,True,True
+cp_cho_phan_bo_nh,ts_ngan_han_khac,Chi phí chờ phân bổ ngắn hạn,3,False,False
+thue_gtgt_khau_tru,ts_ngan_han_khac,Thuế GTGT được khấu trừ,3,False,False
+thue_phai_thu_nha_nuoc,ts_ngan_han_khac,Thuế và các khoản khác phải thu nhà nước,3,False,False
+mua_ban_lai_tp_cp,ts_ngan_han_khac,Giao dịch mua bán lại trái phiếu Chính phủ,3,False,False
+ts_ngan_han_khac_detail,ts_ngan_han_khac,Tài sản ngắn hạn khác,3,False,False
+tai_san_dai_han,tai_san,TÀI SẢN DÀI HẠN,1,True,True
+phai_thu_dai_han,tai_san_dai_han,Các khoản phải thu dài hạn,2,True,True
+phai_thu_dh_kh,phai_thu_dai_han,Phải thu dài hạn của khách hàng,3,False,False
+tra_truoc_dh_nb,phai_thu_dai_han,Trả trước cho người bán dài hạn,3,False,False
+von_kd_truc_thuoc,phai_thu_dai_han,Vốn kinh doanh ở đơn vị trực thuộc,3,False,False
+phai_thu_dh_noi_bo,phai_thu_dai_han,Phải thu dài hạn nội bộ,3,False,False
+phai_thu_dh_khac,phai_thu_dai_han,Phải thu dài hạn khác,3,False,False
+dp_phai_thu_dh_kd,phai_thu_dai_han,Dự phòng phải thu dài hạn khó đòi,3,False,False
+tai_san_co_dinh,tai_san_dai_han,Tài sản cố định,2,True,True
+tscd_huu_hinh,tai_san_co_dinh,Tài sản cố định hữu hình,3,True,True
+tscd_hh_nguyen_gia,tscd_huu_hinh,Nguyên giá,4,False,False
+tscd_hh_hao_mon,tscd_huu_hinh,Giá trị hao mòn lũy kế,4,False,False
+tscd_thue_tc,tai_san_co_dinh,Tài sản cố định thuê tài chính,3,True,True
+tscd_tt_nguyen_gia,tscd_thue_tc,Nguyên giá,4,False,False
+tscd_tt_hao_mon,tscd_thue_tc,Giá trị hao mòn lũy kế,4,False,False
+tscd_vo_hinh,tai_san_co_dinh,Tài sản cố định vô hình,3,True,True
+tscd_vh_nguyen_gia,tscd_vo_hinh,Nguyên giá,4,False,False
+tscd_vh_hao_mon,tscd_vo_hinh,Giá trị hao mòn lũy kế,4,False,False
+tong_tai_san,,TỔNG CỘNG TÀI SẢN,0,True,False
+nguon_von,,NGUỒN VỐN,0,True,True
+no_phai_tra,nguon_von,NỢ PHẢI TRẢ,1,True,True
+no_ngan_han,no_phai_tra,Nợ ngắn hạn,2,True,True
+tra_nguoi_ban_nh,no_ngan_han,Phải trả người bán ngắn hạn,3,False,False
+nguoi_mua_tra_tien_truoc_nh,no_ngan_han,Người mua trả tiền trước ngắn hạn,3,False,False
+tra_co_tuc,no_ngan_han,Phải trả cổ tức, lợi nhuận,3,False,False
+thue_phai_nop_nh,no_ngan_han,Thuế và các khoản phải nộp Nhà nước ngắn hạn,3,False,False
+tra_nguoi_lao_dong,no_ngan_han,Phải trả người lao động,3,False,False
+cp_phai_tra_nh,no_ngan_han,Chi phí phải trả ngắn hạn,3,False,False
+phai_tra_noi_bo_nh,no_ngan_han,Phải trả nội bộ ngắn hạn,3,False,False
+phai_tra_tien_do,no_ngan_han,Phải trả theo tiến độ kế hoạch hợp đồng xây dựng...,3,False,False
+dt_chua_thuc_hien_nh,no_ngan_han,Doanh thu chưa thực hiện ngắn hạn,3,False,False
+phai_tra_nh_khac,no_ngan_han,Phải trả ngắn hạn khác,3,False,False
+vay_nh,no_ngan_han,Vay và nợ thuê tài chính ngắn hạn,3,False,False
+dp_phai_tra_nh,no_ngan_han,Dự phòng phải trả ngắn hạn,3,False,False
+quy_khen_thuong,no_ngan_han,Quỹ khen thưởng phúc lợi,3,False,False
+quy_binh_on_gia,no_ngan_han,Quỹ bình ổn giá,3,False,False
+mua_ban_lai_tp_nh,no_ngan_han,Giao dịch mua bán lại trái phiếu Chính phủ,3,False,False
+no_dai_han,no_phai_tra,Nợ dài hạn,2,True,True
+tra_nguoi_ban_dh,no_dai_han,Phải trả người bán dài hạn,3,False,False
+nguoi_mua_tra_tien_truoc_dh,no_dai_han,Người mua trả tiền trước dài hạn,3,False,False
+thue_phai_nop_dh,no_dai_han,Thuế và các khoản phải nộp Nhà nước dài hạn,3,False,False
+von_chu_so_huu,nguon_von,VỐN CHỦ SỞ HỮU,1,True,True
+von_dau_tu_csh,von_chu_so_huu,Vốn đầu tư của chủ sở hữu,2,True,True
+cp_pho_thong,von_dau_tu_csh,Cổ phiếu phổ thông có quyền biểu quyết,3,False,False
+cp_uu_dai,von_dau_tu_csh,Cổ phiếu ưu đãi,3,False,False
+thang_du_von,von_chu_so_huu,Thặng dư vốn,2,False,False
+quyen_chon_tp,von_chu_so_huu,Quyền chọn chuyển đổi trái phiếu,2,False,False
+von_khac_csh,von_chu_so_huu,Vốn khác của chủ sở hữu,2,False,False
+cp_quy,von_chu_so_huu,Cổ phiếu mua lại của chính mình,2,False,False
+chenh_lech_ts,von_chu_so_huu,Chênh lệch đánh giá lại tài sản,2,False,False
+chenh_lech_ty_gia,von_chu_so_huu,Chênh lệch tỷ giá hối đoái,2,False,False
+quy_dt_phat_trien,von_chu_so_huu,Quỹ đầu tư phát triển,2,False,False
+quy_khac_csh,von_chu_so_huu,Quỹ khác thuộc vốn chủ sở hữu,2,False,False
+ln_sau_thue_chua_pp,von_chu_so_huu,Lợi nhuận sau thuế chưa phân phối,2,True,True
+ln_chua_pp_luy_ke,ln_sau_thue_chua_pp,LNST chưa phân phối lũy kế đến cuối kỳ trước,3,False,False
+ln_chua_pp_ky_nay,ln_sau_thue_chua_pp,LNST chưa phân phối kỳ này,3,False,False
+tong_nguon_von,,TỔNG CỘNG NGUỒN VỐN,0,True,False

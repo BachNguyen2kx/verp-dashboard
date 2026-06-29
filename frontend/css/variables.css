@@ -1,0 +1,137 @@
+/* ERP Dashboard — Design Tokens (Wood furniture / manufacturing inspired palette) */
+
+:root {
+  /* Primary palette (walnut wood) */
+  --primary: #6B4F3A;
+  --primary-light: #7A5536;
+  --primary-dark: #5A3F2E;
+  --primary-50: rgba(107, 79, 58, 0.08);
+  --primary-100: rgba(107, 79, 58, 0.15);
+
+  --secondary: #A67C52;
+  --secondary-light: #C49B6F;
+  --secondary-dark: #8B6341;
+
+  --accent: #C6923D;
+  --accent-light: #D4A85C;
+  --accent-dark: #A87A2F;
+
+  /* Backgrounds (Power BI Canvas) */
+  --bg: #F3F2F1;
+  --bg-alt: #EAEAEA;
+  --surface: #FFFFFF;
+  --surface-alt: #FAFAFA;
+  --surface-hover: #F3F2F1;
+
+  /* Borders */
+  --border: #D2D2D2;
+  --border-light: #E0E0E0;
+  --border-dark: #A0A0A0;
+
+  /* Text */
+  --text: #252525;
+  --text-secondary: #505050;
+  --text-muted: #707070;
+  --text-inverse: #FFFFFF;
+
+  /* Status */
+  --success: #5E7C4F;
+  --success-bg: #EDF4E9;
+  --success-text: #3D5632;
+  --warning: #C6923D;
+  --warning-bg: #FFF8ED;
+  --warning-text: #8B6621;
+  --danger: #B8543D;
+  --danger-bg: #FDF0EC;
+  --danger-text: #7A3628;
+  --info: #4A7C8F;
+  --info-bg: #EBF4F7;
+  --info-text: #2E5564;
+
+  /* Sidebar (Power BI Page List Pane) */
+  --sidebar-bg: #FFFFFF;
+  --sidebar-bg-hover: #F3F2F1;
+  --sidebar-bg-active: #EAEAEA;
+  --sidebar-text: #505050;
+  --sidebar-text-active: #000000;
+  --sidebar-accent: #6B4F3A;
+  --sidebar-width: 240px;
+  --sidebar-collapsed: 72px;
+
+  /* Topbar */
+  --topbar-h: 56px;
+
+  /* Spacing */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-8: 32px;
+  --s-10: 40px;
+  --s-12: 48px;
+
+  /* Radius */
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-lg: 8px;
+  --r-xl: 12px;
+  --r-full: 9999px;
+
+  /* Shadows */
+  --sh-xs: 0 1px 2px rgba(47, 36, 28, 0.04);
+  --sh-sm: 0 1px 3px rgba(47, 36, 28, 0.06), 0 1px 2px rgba(47, 36, 28, 0.04);
+  --sh-md: 0 4px 12px rgba(47, 36, 28, 0.07);
+  --sh-lg: 0 8px 24px rgba(47, 36, 28, 0.1);
+  --sh-xl: 0 16px 48px rgba(47, 36, 28, 0.14);
+
+  /* Typography */
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Inter', sans-serif;
+
+  --fs-2xs: 0.625rem;
+  /* 10px */
+  --fs-xs: 0.6875rem;
+  /* 11px */
+  --fs-sm: 0.75rem;
+  /* 12px */
+  --fs-md: 0.8125rem;
+  /* 13px */
+  --fs-base: 0.875rem;
+  /* 14px */
+  --fs-lg: 1rem;
+  /* 16px */
+  --fs-xl: 1.125rem;
+  /* 18px */
+  --fs-2xl: 1.375rem;
+  /* 22px */
+  --fs-3xl: 1.75rem;
+  /* 28px */
+  --fs-4xl: 2.25rem;
+  /* 36px */
+
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --lh-tight: 1.2;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.7;
+
+  /* Transitions */
+  --tr-fast: 150ms ease;
+  --tr-normal: 250ms ease;
+  --tr-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Chart Colors */
+  --chart-1: #6B4F3A;
+  --chart-2: #C6923D;
+  --chart-3: #5E7C4F;
+  --chart-4: #A67C52;
+  --chart-5: #4A7C8F;
+  --chart-6: #B8543D;
+  --chart-7: #8B6341;
+  --chart-8: #7A8B6E;
+}
