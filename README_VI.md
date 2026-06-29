@@ -103,7 +103,7 @@ graph LR
     end
 
     subgraph PROCESS ["QUY TRÌNH (PROCESS)"]
-        PR1["Chi phí QLDN chưa tối ưu"] --> PR1_Detail["CP quản lý DN: 1,235,000 (12.5% DT)<br>CP bán hàng: 610,000 (6.2% DT)"]
+        PR1["Chi phí QLDN chưa tối ưu"] --> PR1_Detail["CP quản lý DN: 1,235,000 USD (12.5% DT)<br>CP bán hàng: 610,000 USD (6.2% DT)"]
         PR2["Danh mục hàng thử nghiệm chưa phù hợp"] --> PR2_Detail["Bàn ATLA Smart tồn 92 ngày<br>Sofa giường SFG tồn 91 ngày"]
     end
 
@@ -115,7 +115,7 @@ graph LR
     PR1_Detail --> Problem
     PR2_Detail --> Problem
 
-    Problem["VẤN ĐỀ CHÍNH:<br>1. Biên LN ròng chỉ đạt 18.94%<br>(LN ròng: 1,877,126 / DT: 9,909,640)<br>2. Trễ tiến độ đóng cont thành phẩm"]
+    Problem["VẤN ĐỀ CHÍNH:<br>1. Biên LN ròng chỉ đạt 18.94%<br>(LN ròng: 1,877,126 USD / DT: 9,909,640 USD)<br>2. Trễ tiến độ đóng cont thành phẩm"]
 
     style Problem fill:#fee2e2,stroke:#ef4444,stroke-width:2px,color:#1a1a1a;
 ```
@@ -123,7 +123,7 @@ graph LR
 #### Phân Tích Chi Tiết Nguyên Nhân Gốc Rễ và Nguồn Gốc Số Liệu:
 
 1. **Biên lợi nhuận ròng chưa tối ưu (18.94%)**:
-   * *Nguồn gốc số liệu*: Doanh thu thuần đạt **9,909,640 USD**, Lợi nhuận gộp đạt **3,939,126 USD** (Biên lợi nhuận gộp rất cao **39.75%**). Tuy nhiên, Lợi nhuận ròng sau thuế chỉ còn **1,877,126 USD**, dẫn đến Biên lợi nhuận ròng chỉ đạt **18.94%** (lấy trực tiếp từ Tab Kế toán → Bảng Kết quả SXKD trên Dashboard).
+   * *Nguồn gốc số liệu*: Doanh thu thuần đạt **9,909,640 USD**, Lợi nhuận gộp đạt **3,939,126 USD** (Biên lợi nhuận gộp rất cao **39.75%**). Tuy nhiên, Lợi nhuận ròng sau thuế chỉ còn **1,877,126 USD**, dẫn đến Biên lợi nhuận ròng chỉ đạt **18.94%** (lấy trực tiếp từ Tab Kế toán → Bảng Kết quả SXKD trên Dashboard, đơn vị USD).
    * *Nguyên nhân gốc rễ*: Lợi nhuận gộp mạnh bị bào mòn bởi chi phí vận hành:
      * **Chi phí quản lý doanh nghiệp (QLDN)**: Lên tới **1,235,000 USD** (chiếm **12.5%** doanh thu thuần, mã nhóm `EXP_SGNA` trong tệp [chi_phi_tai_san_chi_tiet.csv](data/ke_toan/chi_phi_tai_san_chi_tiet.csv)). Điều này phản ánh các quy trình hành chính, quản lý nhân sự gián tiếp và quản lý văn phòng vẫn còn thủ công, cồng kềnh, chưa được tự động hóa.
      * **Chi phí bán hàng**: Đạt **610,000 USD** (chiếm **6.2%** doanh thu, mã nhóm `EXP_SELL`), chủ yếu do chi phí vận tải quốc tế tăng cao và các chương trình tiếp thị chưa đạt hiệu quả chuyển đổi tối ưu.

@@ -103,7 +103,7 @@ graph LR
     end
 
     subgraph PROCESS ["PROCESS"]
-        PR1["Unoptimized operating expenses"] --> PR1_Detail["G&A Expenses: 1,235,000 (12.5% of revenue)<br>Selling Expenses: 610,000 (6.2% of revenue)"]
+        PR1["Unoptimized operating expenses"] --> PR1_Detail["G&A Expenses: 1,235,000 USD (12.5% of revenue)<br>Selling Expenses: 610,000 USD (6.2% of revenue)"]
         PR2["Niche trial product lines with low market fit"] --> PR2_Detail["ATLA Smart Desk: 92 days in stock<br>SFG Sofa Bed: 91 days in stock"]
     end
 
@@ -115,7 +115,7 @@ graph LR
     PR1_Detail --> Problem
     PR2_Detail --> Problem
 
-    Problem["CORE PROBLEMS:<br>1. Squeezed Net Margin at 18.94%<br>(Net Profit: 1,877,126 / Revenue: 9,909,640)<br>2. Delayed Container Shipments"]
+    Problem["CORE PROBLEMS:<br>1. Squeezed Net Margin at 18.94%<br>(Net Profit: 1,877,126 USD / Revenue: 9,909,640 USD)<br>2. Delayed Container Shipments"]
 
     style Problem fill:#fee2e2,stroke:#ef4444,stroke-width:2px,color:#1a1a1a;
 ```
@@ -123,7 +123,7 @@ graph LR
 #### Detailed Root Cause Analysis & Data Source Reference:
 
 1. **Squeezed Net Profit Margin (18.94%)**:
-   * *Data Source*: Net Revenue is **9,909,640 USD**, Gross Profit is **3,939,126 USD** (strong Gross Margin of **39.75%**). However, Net Profit is only **1,877,126 USD**, leading to a Net Margin of **18.94%** (as shown in the Accounting Tab → P&L Statement on the Dashboard).
+   * *Data Source*: Net Revenue is **9,909,640 USD**, Gross Profit is **3,939,126 USD** (strong Gross Margin of **39.75%**). However, Net Profit is only **1,877,126 USD**, leading to a Net Margin of **18.94%** (as shown in the Accounting Tab → P&L Statement on the Dashboard; all P&L values are denominated in USD).
    * *Root Cause*: High gross profits are eroded by operational expenses:
      * **General & Administrative Expenses (G&A)**: Reaches **1,235,000 USD** (representing **12.5%** of net revenue, categorized as `EXP_SGNA` in [chi_phi_tai_san_chi_tiet.csv](data/ke_toan/chi_phi_tai_san_chi_tiet.csv)). This reflects manual administrative workflows, redundant supervisory roles, and office overheads that have not been automated.
      * **Selling Expenses**: Stands at **610,000 USD** (representing **6.2%** of net revenue, categorized as `EXP_SELL`), driven by rising international logistics costs and inefficient marketing campaigns.
