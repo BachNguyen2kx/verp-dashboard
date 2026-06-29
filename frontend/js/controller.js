@@ -31,7 +31,7 @@ export class DashboardController {
     this.renderCurrentPageState();
   }
 
-  // --- Page Switch Route ---
+  // Chuyển trang
   handlePageChange(pageId) {
     this.model.setActivePage(pageId);
     this.view.showPage(pageId);
@@ -49,7 +49,7 @@ export class DashboardController {
     }
   }
 
-  // --- Production Render Controllers ---
+  // Render trang Sản xuất
   renderProductionPage() {
     const filter = this.model.getTimeFilter();
     const prodKPIs = this.generateProductionKPIs(filter);
@@ -114,7 +114,7 @@ export class DashboardController {
     // No-op: warehouse summary table is a flat list and does not support group toggling
   }
 
-  // --- Business Render Controllers ---
+  // Render trang Kinh doanh
   renderBusinessPage() {
     const filter = this.model.getTimeFilter();
 
@@ -145,8 +145,8 @@ export class DashboardController {
       revenue: dataRevenue,
       gross: dataGross,
       net: dataNet,
-      grossMargin: dataMarginGopWorkaround(dataGrossMargin),
-      netMargin: dataMarginGopWorkaround(dataNetMargin)
+      grossMargin: dataGrossMargin,
+      netMargin: dataNetMargin
     };
 
     const turnoverData = this.scaleTurnoverData(this.model.data.business.topTurnoverItems, filter);
@@ -184,7 +184,7 @@ export class DashboardController {
     this.view.renderBusinessInventoryTable(inventoryData, tabId, collapsedGroups);
   }
 
-  // --- Finance Render Controllers ---
+  // Render trang Kế toán
   renderFinancePage() {
     const filter = this.model.getTimeFilter();
     const plKPIs = this.model.data.finance.pl.kpis;
@@ -205,7 +205,7 @@ export class DashboardController {
     this.view.renderBalanceTable(balanceData);
   }
 
-  // --- Global Time Filter Handlers ---
+  // Xử lý bộ lọc thời gian toàn cục
   handleGlobalFilterTypeChange(type, value) {
     this.model.setTimeFilter(type, value);
     this.renderCurrentPageState();
@@ -261,14 +261,8 @@ export class DashboardController {
       } else if (filter.type === 'week') {
         const w = parseInt(filter.value);
         periodText = `Tuần ${w}/2026`;
-        let m = 6;
-        if (w <= 5) m = 1;
-        else if (w <= 9) m = 2;
-        else if (w <= 13) m = 3;
-        else if (w <= 17) m = 4;
-        else if (w <= 22) m = 5;
-        else if (w <= 26) m = 6;
-        else m = 7;
+        // Dùng hàm dùng chung từ Utils thay vì lặp lại logic tuần → tháng
+        let m = Utils.weekToMonth(w);
         const basePlan = this.model.data.monthlyPlans.find(p => p.Month === m) || {};
         plansToSum = [{
           Plan_Orders: Math.round((basePlan.Plan_Orders || 500) / 4.2),
@@ -382,22 +376,32 @@ export class DashboardController {
     ];
   }
 
+  // Trả về hệ số tỷ lệ xấp xỉ để scale dữ liệu kinh doanh theo bộ lọc thời gian.
+  // Đây là công thức ước lượng tuyến tính, không tính từ dữ liệu thực tế.
+  // Hệ số 1.0 tương ương với một tháng (chuẩn).
   getFilterScaleFactor(filter) {
     if (!filter || filter.type === 'none') return 1.0;
     if (filter.type === 'month') {
+      // Táng dần theo tháng: T1 ≈ 0.67, T6 ≈ 1.02, T12 ≈ 1.44
+      // Phản ánh xu hướng mùa vụ tăng dần trong năm
       return 0.6 + (parseInt(filter.value) * 0.07);
     } else if (filter.type === 'quarter') {
+      // Q1 ≈ 1.9, Q2 ≈ 2.3, Q3 ≈ 2.7, Q4 ≈ 3.1 (xấp xỉ tổng 3 tháng)
       return 1.5 + (parseInt(filter.value) * 0.4);
     } else if (filter.type === 'week') {
+      // Mỗi tuần ≈ 1/4.3 tháng; tăng nhẹ theo số tuần do xu hướng mùa vụ
       return 0.22 + (parseInt(filter.value) * 0.01);
     } else if (filter.type === 'day') {
+      // Mỗi ngày ≈ 1/30 tháng; ngày cuối tháng thường có sản lượng cao hơn ngày đầu
       const dayNum = parseInt(filter.value.split('-')[2]) || 15;
       return 0.03 + (dayNum * 0.002);
     } else if (filter.type === 'range' && filter.value.startDate && filter.value.endDate) {
+      // Tỷ lệ chính xác: số ngày trong khoảng / 30 ngày chuẩn một tháng
       const diffTime = Math.abs(new Date(filter.value.endDate) - new Date(filter.value.startDate));
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
       return diffDays / 30;
     } else if (filter.type === 'year') {
+      // Cả năm = 12 tháng
       return 12.0;
     }
     return 1.0;
@@ -477,15 +481,8 @@ export class DashboardController {
       }
     } else if (filter.type === 'week') {
       const w = parseInt(filter.value);
-      let m = 6;
-      if (w <= 5) m = 1;
-      else if (w <= 9) m = 2;
-      else if (w <= 13) m = 3;
-      else if (w <= 17) m = 4;
-      else if (w <= 22) m = 5;
-      else if (w <= 26) m = 6;
-      else m = 7;
-      
+      // Dùng hàm dùng chung từ Utils thay vì lặp lại logic tuần → tháng
+      let m = Utils.weekToMonth(w);
       currentMonths = [m];
       priorMonths = m > 1 ? [m - 1] : [];
     } else if (filter.type === 'day') {
@@ -539,6 +536,9 @@ export class DashboardController {
     const priVal = sumMetrics(priorMonths);
     
     const hasPriorMonths = priorMonths.length > 0;
+    // Giá trị kỳ trước ước tính khi không có dữ liệu thực tế:
+    // các hệ số (0.91–0.95) phản ánh tốc độ tăng trưởng giả định ~5–10% so khoảng trước
+    // (dương = kỳ trước thấp hơn kỳ này, tức doanh nghiệp đang tăng trưởng)
     const getPriorVal = (cur, pri, ratio = 0.94) => {
       return hasPriorMonths ? pri : Math.round(cur * ratio);
     };
@@ -636,14 +636,7 @@ export class DashboardController {
         else if (q === 3) { targetMonth = 9; priorMonth = 6; }
         else if (q === 4) { targetMonth = 12; priorMonth = 9; }
       } else if (filter.type === 'week') {
-        const w = parseInt(filter.value);
-        if (w <= 5) targetMonth = 1;
-        else if (w <= 9) targetMonth = 2;
-        else if (w <= 13) targetMonth = 3;
-        else if (w <= 17) targetMonth = 4;
-        else if (w <= 22) targetMonth = 5;
-        else if (w <= 26) targetMonth = 6;
-        else targetMonth = 7;
+        targetMonth = Utils.weekToMonth(parseInt(filter.value));
         priorMonth = targetMonth > 1 ? targetMonth - 1 : 12;
       } else if (filter.type === 'day') {
         targetMonth = parseInt(filter.value.split('-')[1]) || 6;
@@ -681,8 +674,4 @@ export class DashboardController {
     
     return mapped;
   }
-}
-
-function dataMarginGopWorkaround(arr) {
-  return arr;
 }

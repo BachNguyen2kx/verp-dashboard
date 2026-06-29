@@ -1,6 +1,13 @@
 /**
- * app.js — Entry point của ERP Dashboard
- * Lấy dữ liệu từ API và khởi tạo mô hình MVC (Model, View, Controller)
+ * app.js — Điểm khởi động chính của ERP Dashboard
+ * Tải dữ liệu từ API song song, lắp ráp cấu trúc MVC và khởi động controller.
+ *
+ * Ghi chú về ?v=42 trong các dòng import bên dưới:
+ * Đây là kỹ thuật phá cache trình duyệt (cache-busting). Trình duyệt sẽ coi
+ * ?v=42 và ?v=43 là hai URL khác nhau nên tải lại file mới thay vì dùng bản cũ.
+ * Khi cập nhật code, tăng số này lên đồng bộ với APP_VERSION trong utils.js.
+ * Lưu ý: ES module import là câu lệnh tĩnh, không cho phép dùng biến nên
+ * phải giữ số cứng ở đây thay vì import APP_VERSION.
  */
 
 import { DashboardModel }      from './model.js?v=42';

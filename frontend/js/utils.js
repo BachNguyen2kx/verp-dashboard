@@ -1,5 +1,9 @@
 /* Các hàm tiện ích dùng chung cho ERP Dashboard */
 
+// Phiên bản ứng dụng — tăng số này lên mỗi khi deploy bản mới để trình duyệt
+// tải lại file JS mới thay vì dùng bản cũ đang cache (ví dụ: 43, 44, 45...)
+export const APP_VERSION = 42;
+
 export const Utils = {
 
   // Format số hiển thị
@@ -121,6 +125,19 @@ export const Utils = {
       bell: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>'
     };
     return icons[name] || '';
+  },
+
+  // Chuyển đổi số tuần trong năm sang tháng tương ứng theo lịch 2026
+  // Phân bổ chuẩn ISO: T1=tuần 1-5, T2=6-9, T3=10-13, T4=14-17, T5=18-22, T6=23-26, T7=27+
+  // Hàm này tập trung logic dùng chung — tránh copy-paste giữa model.js và controller.js
+  weekToMonth(w) {
+    const week = parseInt(w);
+    if (week <= 5)  return 1;
+    if (week <= 9)  return 2;
+    if (week <= 13) return 3;
+    if (week <= 17) return 4;
+    if (week <= 22) return 5;
+    if (week <= 26) return 6;
+    return 7;
   }
 };
-

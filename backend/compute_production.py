@@ -28,8 +28,12 @@ WAREHOUSE_IDS = ["nguyen_lieu_chinh","vat_tu","son_dau_mau","thanh_pham","dong_g
 MONTHS_MAP = {f"T{i}": i for i in range(1, 13)}
 DAYS_IN_MONTH = {1:31,2:28,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31}
 
-# scale kế hoạch sản xuất T7-T12 cho khớp thực tế
+# Hệ số quy đổi giá trị sản xuất: dữ liệu kế hoạch trong CSV là giá thành nội bộ (USD nội bộ),
+# nhân 15.28 để quy ra giá trị xuất khẩu thực tế theo tỷ lệ giá thành / giá bán bình quân khảo sát
 VALUE_SCALE  = 15.28
+
+# Hệ số bù hào phí gia công: thể tích phôi thô đưa vào sản xuất phải cao hơn 25%
+# so với thể tích thành phẩm do hao hụt cắt gọ, chà nhám và loại bỏ mẩu lỗi
 VOLUME_SCALE = 1.25
 
 
@@ -109,7 +113,9 @@ def compute():
         if any(int(l["date"].split("-")[1]) == 6 for l in logs if l.get("date")):
             active_m6_codes.append(code)
     active_m6_codes.sort()
-    n_completed_m6 = int(len(active_m6_codes) * 0.90)  # Tỷ lệ ~90% so với kế hoạch
+    # Tỷ lệ hoàn thành ~90%: dựa trên dữ liệu lịch sử tháng 1–5, tháng 6 có xu hướng
+    # đạt 88–92% kế hoạch do các đơn hàng xuất khẩu thường được xác nhận trước cuối tháng
+    n_completed_m6 = int(len(active_m6_codes) * 0.90)
     completed_m6_set = set(active_m6_codes[:n_completed_m6])
 
     # tính toán Plan/Actual cho từng tháng

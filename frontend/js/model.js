@@ -1,3 +1,5 @@
+import { Utils } from './utils.js?v=42';
+
 export class DashboardModel {
   constructor(mockData) {
     this.data = mockData;
@@ -40,14 +42,8 @@ export class DashboardModel {
         this.activeMonitorMonth = parseInt(parts[1]);
       }
     } else if (type === 'week' && value) {
-      const w = parseInt(value);
-      if (w <= 5) this.activeMonitorMonth = 1;
-      else if (w <= 9) this.activeMonitorMonth = 2;
-      else if (w <= 13) this.activeMonitorMonth = 3;
-      else if (w <= 17) this.activeMonitorMonth = 4;
-      else if (w <= 22) this.activeMonitorMonth = 5;
-      else if (w <= 26) this.activeMonitorMonth = 6;
-      else this.activeMonitorMonth = 7;
+      // Dùng hàm dùng chung từ Utils thay vì lặp lại logic tuần → tháng
+      this.activeMonitorMonth = Utils.weekToMonth(value);
     } else if (type === 'quarter') {
       const q = parseInt(value);
       if (q === 1) this.activeMonitorMonth = 3;
