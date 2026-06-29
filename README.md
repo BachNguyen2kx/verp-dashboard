@@ -121,7 +121,7 @@ graph LR
     
     Backbone --> Problem["CORE PROBLEMS:<br>1. Squeezed Net Margin (18.94%)<br>2. Delayed Container Shipments"]
     
-    style Problem fill:#fee2e2,stroke:#ef4444,stroke-width:2px;
+    style Problem fill:#fee2e2,stroke:#ef4444,stroke-width:2px,color:#1a1a1a;
 ```
 
 #### Detailed Root Cause Analysis & Data Source Reference:

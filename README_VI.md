@@ -121,7 +121,7 @@ graph LR
     
     Backbone --> Problem["VẤN ĐỀ CHÍNH:<br>1. Biên LN ròng thấp (18.94%)<br>2. Trễ tiến độ giao cont thành phẩm"]
     
-    style Problem fill:#fee2e2,stroke:#ef4444,stroke-width:2px;
+    style Problem fill:#fee2e2,stroke:#ef4444,stroke-width:2px,color:#1a1a1a;
 ```
 
 #### Phân Tích Chi Tiết Nguyên Nhân Gốc Rễ và Nguồn Gốc Số Liệu:
