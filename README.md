@@ -88,26 +88,26 @@ To identify the root causes of the squeezed net profit margin (18.94%) and manuf
 
 ```mermaid
 graph LR
-    subgraph PEOPLE ["👷 PEOPLE"]
+    subgraph PEOPLE ["PEOPLE"]
         P1["Shortage of QC specialist staff"] --> P1_Detail["QC stage bottleneck<br>(only 60% of production schedule cleared)"]
         P2["High worker turnover in Painting/PU"] --> P2_Detail["Painting/PU at 74% completion<br>(slowest of all 5 production stages)"]
         P1_Detail --> Cause_People[" "]
         P2_Detail --> Cause_People
     end
 
-    subgraph MATERIAL ["📦 MATERIAL"]
+    subgraph MATERIAL ["MATERIAL"]
         M1["Orders canceled after raw wood procured"] --> M1_Detail["S. African Red Wood stored for 91 days<br>(Top slow-moving raw material)"]
         M2["Bulk purchasing without JIT strategy"] --> M2_Detail["Raw material warehouse: 33.6% of total stock<br>(Paint/varnish 18.7%, Packaging 8.8%)"]
         M1_Detail --> Cause_Material[" "]
         M2_Detail --> Cause_Material
     end
 
-    subgraph MACHINE ["⚙️ MACHINE"]
+    subgraph MACHINE ["MACHINE"]
         MC1["Aging sanding machine in PX3<br>(shaft misalignment / vibrations)"] --> MC1_Detail["PX3 defect rate 1.34% despite low run hours<br>(Cutting & Assembly stages reach 100%)"]
         MC1_Detail --> Cause_Machine[" "]
     end
 
-    subgraph PROCESS ["📋 PROCESS"]
+    subgraph PROCESS ["PROCESS"]
         PR1["Unoptimized operating expenses"] --> PR1_Detail["G&A Expenses: 1,235,000 (12.5% of revenue)<br>Selling Expenses: 610,000 (6.2% of revenue)"]
         PR2["Niche trial product lines with low market fit"] --> PR2_Detail["ATLA Smart Desk: 92 days in stock<br>SFG Sofa Bed: 91 days in stock"]
         PR1_Detail --> Cause_Process[" "]
@@ -119,7 +119,7 @@ graph LR
     Cause_Machine --> Backbone
     Cause_Process --> Backbone
 
-    Backbone --> Problem["⚠️ CORE PROBLEMS:<br>1. Squeezed Net Margin at 18.94%<br>   (Net Profit: 1,877,126 / Revenue: 9,909,640)<br>2. Delayed Container Shipments"]
+    Backbone --> Problem["CORE PROBLEMS:<br>1. Squeezed Net Margin at 18.94%<br>   (Net Profit: 1,877,126 / Revenue: 9,909,640)<br>2. Delayed Container Shipments"]
 
     style Problem fill:#fee2e2,stroke:#ef4444,stroke-width:2px,color:#1a1a1a;
     style Backbone fill:#f5f5f5,stroke:#999,color:#f5f5f5;
