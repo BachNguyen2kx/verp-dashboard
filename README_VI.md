@@ -91,42 +91,33 @@ graph LR
     subgraph PEOPLE ["CON NGƯỜI (PEOPLE)"]
         P1["Thiếu nhân sự QC chuyên môn"] --> P1_Detail["Nút thắt khâu kiểm định chất lượng<br>(tiến độ QC: 60% kế hoạch)"]
         P2["Công nhân Sơn/PU nghỉ việc cao"] --> P2_Detail["Xưởng Sơn/PU chỉ đạt 74% tiến độ<br>(chậm nhất trong 5 công đoạn)"]
-        P1_Detail --> Cause_People[" "]
-        P2_Detail --> Cause_People
     end
 
     subgraph MATERIAL ["NGUYÊN VẬT LIỆU (MATERIAL)"]
         M1["Hủy/hoãn đơn sau khi đã nhập gỗ"] --> M1_Detail["Gỗ đỏ Nam Phi tồn kho 91 ngày<br>(Top slow-moving raw material)"]
         M2["Chính sách mua gom số lượng lớn"] --> M2_Detail["Kho NL chính chiếm 33.6% tổng tồn<br>(Sơn-dầu màu 18.7%, Đóng gói 8.8%)"]
-        M1_Detail --> Cause_Material[" "]
-        M2_Detail --> Cause_Material
     end
 
     subgraph MACHINE ["THIẾT BỊ (MACHINE)"]
         MC1["Máy chà nhám PX3 rơ trục / rung lắc"] --> MC1_Detail["PX3 tỷ lệ lỗi 1.34% dù chạy ít giờ máy<br>(Cắt phôi & lắp ráp đạt 100% tiến độ)"]
-        MC1_Detail --> Cause_Machine[" "]
     end
 
     subgraph PROCESS ["QUY TRÌNH (PROCESS)"]
         PR1["Chi phí QLDN chưa tối ưu"] --> PR1_Detail["CP quản lý DN: 1,235,000 (12.5% DT)<br>CP bán hàng: 610,000 (6.2% DT)"]
         PR2["Danh mục hàng thử nghiệm chưa phù hợp"] --> PR2_Detail["Bàn ATLA Smart tồn 92 ngày<br>Sofa giường SFG tồn 91 ngày"]
-        PR1_Detail --> Cause_Process[" "]
-        PR2_Detail --> Cause_Process
     end
 
-    Cause_People --> Backbone[" "]
-    Cause_Material --> Backbone
-    Cause_Machine --> Backbone
-    Cause_Process --> Backbone
+    P1_Detail --> Problem
+    P2_Detail --> Problem
+    M1_Detail --> Problem
+    M2_Detail --> Problem
+    MC1_Detail --> Problem
+    PR1_Detail --> Problem
+    PR2_Detail --> Problem
 
-    Backbone --> Problem["VẤN ĐỀ CHÍNH:<br>1. Biên LN ròng chỉ đạt 18.94%<br>    (LN ròng: 1,877,126 / DT: 9,909,640)<br>2. Trễ tiến độ đóng cont thành phẩm"]
+    Problem["VẤN ĐỀ CHÍNH:<br>1. Biên LN ròng chỉ đạt 18.94%<br>(LN ròng: 1,877,126 / DT: 9,909,640)<br>2. Trễ tiến độ đóng cont thành phẩm"]
 
     style Problem fill:#fee2e2,stroke:#ef4444,stroke-width:2px,color:#1a1a1a;
-    style Backbone fill:#f5f5f5,stroke:#999,color:#f5f5f5;
-    style Cause_People fill:#dbeafe,stroke:#3b82f6,color:#dbeafe;
-    style Cause_Material fill:#dcfce7,stroke:#22c55e,color:#dcfce7;
-    style Cause_Machine fill:#fef9c3,stroke:#eab308,color:#fef9c3;
-    style Cause_Process fill:#fae8ff,stroke:#a855f7,color:#fae8ff;
 ```
 
 #### Phân Tích Chi Tiết Nguyên Nhân Gốc Rễ và Nguồn Gốc Số Liệu:
